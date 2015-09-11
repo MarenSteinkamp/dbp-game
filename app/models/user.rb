@@ -191,7 +191,10 @@ class User < ActiveRecord::Base
     self.activeShip=shipID
     self.save
   end
-
+  def active_ship
+    return Ship.find_by(id: self.activeShip)
+    
+  end
   def is_user
     return right_level >= 0
   end
